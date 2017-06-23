@@ -11,7 +11,7 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
-  output: {E
+  output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
     publicPath: process.env.NODE_ENV === 'production'

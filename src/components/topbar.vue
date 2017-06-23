@@ -14,7 +14,7 @@ export default {
   name: 'topbar'
 }
 </script>
-</script>
+
 <style scope>
 #topbar{
  height:0.5rem;
@@ -24,14 +24,14 @@ export default {
  border-bottom:0.01rem solid #EAEAEA;
 }
 .top-bar-l{
-  width:1.6rem;
+  width:1.7rem;
   height:100%;
   float:left;
   margin:0 0 0 0.4rem;
 }
 .focus-select select{
 display:inline-block;
-width:1.2rem;
+width:1.4rem;
 font-size:0.3rem;
 height:100%;
 border:none;
@@ -41,7 +41,7 @@ display:inline-block;
 width:0.3rem;
 height:0.3rem;
 float:right;
-margin:0.1rem 0 0 0;
+margin:0.03rem 0 0 0;
 }
 .select-arr img{
 width:100%;

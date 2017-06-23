@@ -22,14 +22,12 @@
       <div slot='item-des' class='item-des'>{{item.des}}</div>
     </index-item>
   </div>
-  <div class='bottom-menu'><Bottombar></Bottombar></div>
   </div>
 </template>
 
 <script>
   import indexItem from "@/components/index-item"
   import Topbar from '@/components/topbar'
-  import Bottombar from '@/components/bottom-menu'
   export default {
     name: 'index',
     data(){
@@ -51,8 +49,7 @@
     },
     components:{
       "index-item":indexItem,
-      'Topbar':Topbar,
-      'Bottombar':Bottombar
+      'Topbar':Topbar
     },
     filters:{
       essayfilter:function(value){
@@ -66,7 +63,7 @@
   }
 </script>
 
-<style>
+<style scope>
   #index {
     position:relative;
   }

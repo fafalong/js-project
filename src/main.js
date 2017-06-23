@@ -7,6 +7,8 @@ import router from './router'
 import '@/assets/css/common.css'
 import '@/assets/js/rem.js'
 import '@/assets/js/common.js'
+import  '../node_modules/mint-ui/lib/style.css'
+import  '../node_modules/mint-ui/lib/index.js'
 
 Vue.config.productionTip = false
 

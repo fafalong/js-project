@@ -21,7 +21,6 @@ $(function(){
   }
   bottomBar();
   function bottomBar(){
-    var botBar=$('#bottom-menu');
     var menuList=$('#bottom-menu>div');
     $.each(menuList,function(i){
       menuList.eq(i).click(function(){
@@ -31,10 +30,8 @@ $(function(){
         menuList.eq(4).find('img').attr('src','../../static/img//my.png')
         if(i==0){
           $(this).find('img').attr('src','../../static/img/index-a.png')
-
         }else if(i==1){
           $(this).find('img').attr('src','  ../../static/img/find-a.png')
-
         }else if(i==2){
           alert(2)
         }else if(i==3){
@@ -45,5 +42,9 @@ $(function(){
       })
     })
     menuList.eq(0).click();
+  }
+  searchStren();
+  function searchStren(){
+
   }
 })

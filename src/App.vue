@@ -1,12 +1,17 @@
 <template>
   <div id="app">
     <router-view></router-view>
+    <Bottombar></Bottombar>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'app'
+  import Bottombar from '@/components/bottom-menu'
+  export default {
+     name: 'app',
+    components:{
+      'Bottombar':Bottombar
+    }
 }
 </script>
 
@@ -20,6 +25,7 @@ export default {
 body{
   margin:0;
   padding:0;
+  overflow-x: hidden;
   width:100%!important;
 }
 </style>
