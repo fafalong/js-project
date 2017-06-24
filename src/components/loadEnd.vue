@@ -1,8 +1,8 @@
 <template>
   <div class="load-end">
     <span>没有更多的内容了！</span>
-    <div>{{msg}}</div>
-    <input type="text" v-model="msgcon" @keyup="giveval" style="border:1px solid red"/>
+    <!--<div>{{msg}}</div>-->
+    <!--<input type="text" v-model="msgcon" @keyup="giveval" style="border:1px solid red"/>-->
   </div>
 </template>
 <script>
@@ -25,7 +25,7 @@
 </script>
 <style scoped>
 .load-end{
-  height:17.6rem;
+  height:15.6rem;
   text-align: center;
   font-size: 0.3rem;
   color:#c8c8c8;

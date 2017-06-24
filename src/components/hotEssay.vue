@@ -24,10 +24,11 @@
 </script>
 <style scoped>
 .hot-essay{
-  padding: 0.2rem;
+  padding: 0.3rem;
   overflow: hidden;
   width: 100%;
   border-bottom: 0.01rem solid #DEDEDE;
+  position: relative;
 }
   .hot-essay div{
     float: left;
@@ -64,12 +65,16 @@
     padding: 0 0.15rem;
     color: #EBA498;
     border-radius: 0.05rem;
-    font-size: 0.28rem;
-    margin-right: 0.2rem;
+    font-size: 0.23rem;
+    margin:0.05rem 0.2rem 0 0;
+  }
+  .e-comment{
+    position: absolute;
+    bottom: 0.2rem;
   }
   .e-comm ul{
     overflow: hidden;
-    font-size: 0.25rem;
+    font-size: 0.22rem;
     color: #C2C2C2;
     margin: 0.01rem 0 0 0;
   }
@@ -84,6 +89,6 @@
   .hot-essay-r img{
     width: 1.75rem;
     height: 1.75rem;
-    margin: 0.2rem 0 0 0;
+    margin: 0.3rem 0 0 0;
   }
 </style>

@@ -2,7 +2,7 @@
   <div id='find'>
     <div id="search-box">
     </div>
-    <div id='search-input'>
+    <div id='search-input' @click="showSearch">
       <img src='../../static/img/search.png' alt='search-logo'/>
       <div class="search-text"><span>搜索简书的内容和朋友</span></div>
     </div>
@@ -28,7 +28,7 @@
     <div id="hot-topics">
       <div id="hot-topic-tit" class="tit-div">
         <span class="tit">热门专题</span>
-        <span id="batch" @click="batch"><img src="../../static/img/batch.png" alt="">换一批</span>
+        <span id="batch" @click="batch(rotateNum+=180)"><img src="../../static/img/batch.png" alt="">换一批</span>
       </div>
       <div id="hot-topic-btns">
         <ul>
@@ -48,7 +48,7 @@
     <div class="hot-essay">
       <div id="hot-essay-tit" class="tit-div">
         <span class="tit">热门文章</span>
-        <span><img src="../../static/img/customized.png" alt="">定制热门</span>
+        <span class="tit-div2" @click="showCusHot"><img src="../../static/img/customized.png" alt="">定制热门</span>
       </div>
       <div class="hot-e-con">
         <HotE v-for="item in hotE">
@@ -67,8 +67,14 @@
           </div>
           <img :src="item.eImg" slot="essay-img" alt="">
         </HotE>
-        <input type="text" id="child-val" style="border:1px solid #000"/>
+        <!--<input type="text" id="child-val" style="border:1px solid #000"/>-->
         <LoadEnd :msg="msgcon" @transfer="getUser"></LoadEnd>
+        <transition name="slide-fade" appear>
+          <CustomHot v-if="customhot" @showCom="showCusHot"></CustomHot>
+        </transition>
+        <transition name="slide" appear>
+          <Search v-if="search" @showSearch="showSearch"></Search>
+        </transition>
       </div>
     </div>
   </div>
@@ -80,6 +86,8 @@
   Vue.component(SwipeItem.name, SwipeItem);
   import HotE from '../components/hotEssay'
   import LoadEnd from '../components/loadEnd'
+  import CustomHot from '../components/custom-hot'
+  import Search from '../components/search'
   export default{
     name: 'find',
     data(){
@@ -148,13 +156,17 @@
         ],
         rotateNum:0,
         msgcon:'hello world',
-        childmsg:''
+        childmsg:'',
+        customhot:false,
+        search:false
       }
     },
     props:['msg'],
     components:{
       'HotE':HotE,
-      'LoadEnd':LoadEnd
+      'LoadEnd':LoadEnd,
+      'CustomHot':CustomHot,
+      'Search':Search
     },
     mounted(){
       this.searchStren();
@@ -187,18 +199,35 @@
           }
         })
       },
-      batch(){
+      batch(value){
         var batch=$('#batch');
         var batchImg=$('#batch img');
-        var num=this.rotateNum+180;
         batchImg.css({
-          'transform':'rotate('+this.rotateNum+180+'deg)'
+          'transform':'rotate('+value+'deg)'
         })
       },
       getUser(val){
         var parentInput=$('#child-val')
         this.childmsg=val
         parentInput.val(this.childmsg)
+      },
+      showMake(){
+        this.show=!this.show;
+        console.log(this.show)
+      },
+      showCusHot(value){
+        if(!value){
+          this.customhot=!this.customhot;
+        }else{
+          this.customhot=value;
+        }
+      },
+      showSearch(value){
+        if(!value){
+          this.search=!this.search;
+        }else{
+          this.search=value;
+        }
       }
     }
   }
@@ -274,7 +303,7 @@
   .tit-div{
     color:#9E9E9E;
     overflow: hidden;
-    padding: 0 0.2rem;
+    padding: 0 0.3rem;
     font-size: 0.28rem;
     margin: 0.3rem 0;
   }
@@ -285,14 +314,16 @@
     transform: rotate(0deg);
     transition: all linear 0.4s;
   }
-  .tit-div span:nth-of-type(2){
+  .tit-div span:nth-of-type(2),.tit-div .tit-div2{
     float: right;
+    color:#9E9E9E;
   }
   #hot-topic-btns{
     margin: 0.3rem 0;
   }
   #hot-topic-btns ul{
     overflow: hidden;
+    padding: 0.2rem 0.1rem;
   }
   #hot-topic-btns li{
     float: left;
@@ -306,5 +337,22 @@
   .tit{
     border-left: 0.05rem solid #E58C7C;
     padding: 0 0 0 0.1rem;
+  }
+  /*transition动画*/
+  /*定制热门*/
+  .slide-fade-enter-active {
+    transition: all .4s ease;
+  }
+  .slide-fade-enter, .slide-fade-leave-active {
+    transform: translateX(7rem);
+    opacity: 0;
+  }
+  /*搜索*/
+  .slide-enter-active,.slide-leave-active {
+    transition: all .4s ease;
+  }
+  .slide-enter, .slide-leave-active {
+    transform: translateX(7rem);
+    opacity: 0;
   }
 </style>

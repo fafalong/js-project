@@ -2,9 +2,9 @@
   <div id='bottom-menu'>
        <div id='index-btn' @click="index"><img src='../../static/img/index.png' alt='首页'/></div>
        <div id='find-btn' @click="find"><img src='../../static/img/find.png' alt='发现'/></div>
-       <div id='publish-btn'><img src='../../static/img/add.png' alt='发现'/></div>
-       <div id='msg-btn'><img src='../../static/img/msg.png' alt='消息'/></div>
-       <div id='user-btn'><img src='../../static/img/my.png' alt='我的 '/></div>
+       <div id='publish-btn' @click="publish"><img src='../../static/img/add.png' alt='发现'/></div>
+       <div id='msg-btn' @click="message"><img src='../../static/img/msg.png' alt='消息'/></div>
+       <div id='user-btn' @click="my"><img src='../../static/img/my.png' alt='我的 '/></div>
   </div>
 </template>
 <script>
@@ -16,6 +16,15 @@ export default{
     },
     find(){
       this.$router.push({path:'/find'})
+    },
+    publish(){
+      this.$router.push({path:'/publish'})
+    },
+    message(){
+      this.$router.push({path:'/message'})
+    },
+    my(){
+      this.$router.push({path:'/my'})
     }
   }
 }

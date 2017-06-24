@@ -33,7 +33,6 @@ $(function(){
         }else if(i==1){
           $(this).find('img').attr('src','  ../../static/img/find-a.png')
         }else if(i==2){
-          alert(2)
         }else if(i==3){
             $(this).find('img').attr('src',' ../../static/img/msg-a.png')
         }else if(i==4){
